@@ -14,6 +14,21 @@ tauri-build = { version = "1", features = [] }
 tauri = { version = "1", features = ["shell-open"] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+# Pin transitive deps that adopted edition2024 or raised MSRV above 1.77.2.
+# Rust 1.77.2 is the last version that supports Windows 7.
+tempfile = ">=3, <3.15"
+uuid = { version = ">=1, <1.12", features = ["v4"] }
+time = ">=0.3, <0.3.37"
+ignore = ">=0.4, <0.4.25"
+globset = ">=0.4, <0.4.17"
+# url 2.5+ pulls in idna 1.x → entire icu4x 2.x chain (MSRV 1.82-1.83)
+url = ">=2, <2.5"
+plist = ">=1, <1.8"
+indexmap = ">=2, <2.12"
+serde_with = ">=3, <3.17"
+windows-core = ">=0.61, <0.62"
+windows-result = ">=0.3, <0.4"
+windows-strings = ">=0.4, <0.5"
 
 [features]
 # This feature is used for production builds or when a dev server is not specified, DO NOT REMOVE!!
