@@ -34,7 +34,6 @@ jobs:
       - name: Install Tauri CLI
         run: cargo install tauri-cli --locked
 
-
       - name: Build Tauri App
         run: bun run tauri build
 
@@ -43,4 +42,4 @@ jobs:
         with:
           name: macos-bundles
           path: |
-            target/release/bundle/**/*
+            src-tauri/target/release/bundle/**/*
