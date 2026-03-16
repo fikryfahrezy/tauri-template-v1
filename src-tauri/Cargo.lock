@@ -1374,28 +1374,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "koperasi"
-version = "0.1.0"
-dependencies = [
- "globset",
- "ignore",
- "indexmap 2.11.4",
- "plist",
- "serde",
- "serde_json",
- "serde_with",
- "tauri",
- "tauri-build",
- "tempfile",
- "time",
- "url",
- "uuid",
- "windows-core 0.61.2",
- "windows-result 0.3.4",
- "windows-strings 0.4.2",
-]
-
-[[package]]
 name = "kuchikiki"
 version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2708,6 +2686,28 @@ dependencies = [
  "webkit2gtk",
  "webview2-com",
  "windows 0.39.0",
+]
+
+[[package]]
+name = "tauri-app-v1"
+version = "0.1.0"
+dependencies = [
+ "globset",
+ "ignore",
+ "indexmap 2.11.4",
+ "plist",
+ "serde",
+ "serde_json",
+ "serde_with",
+ "tauri",
+ "tauri-build",
+ "tempfile",
+ "time",
+ "url",
+ "uuid",
+ "windows-core 0.61.2",
+ "windows-result 0.3.4",
+ "windows-strings 0.4.2",
 ]
 
 [[package]]

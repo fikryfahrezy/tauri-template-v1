@@ -7,7 +7,7 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "koperasi",
+    "productName": "tauri-app-v1",
     "version": "0.1.0"
   },
   "tauri": {
@@ -20,7 +20,7 @@
     },
     "windows": [
       {
-        "title": "koperasi",
+        "title": "tauri-app-v1",
         "width": 800,
         "height": 600
       }
@@ -31,7 +31,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.fikryfahrezy.koperasi",
+      "identifier": "com.fikryfahrezy.tauriappv1",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
