@@ -21,6 +21,7 @@ jobs:
             libayatana-appindicator3-dev \
             librsvg2-dev \
             libsoup2.4-dev \
+            libjavascriptcoregtk-4.0-dev \
             patchelf
 
       - name: Setup Rust 1.77.2
