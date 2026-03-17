@@ -32,13 +32,18 @@ jobs:
         uses: oven-sh/setup-bun@v2
 
       - name: install Rust stable
-        uses: dtolnay/rust-toolchain@stable
+        uses: dtolnay/rust-toolchain@1.77.2
         with:
           # Those targets are only used on macos runners so it's in an `if` to slightly speed up windows and linux builds.
           targets: ${{ matrix.platform == 'macos-26' && 'aarch64-apple-darwin,x86_64-apple-darwin' || '' }}
 
+      - name: install dependencies (macos intel only)
+        if: contains(matrix.args, 'x86_64-apple-darwin')
+        run: |
+          rustup target add x86_64-apple-darwin
+
       - name: install dependencies (ubuntu only)
-        if: matrix.platform == 'ubuntu-22.04' # This must match the platform value defined above.
+        if: matrix.platform == 'ubuntu-22.04'
         run: |
           sudo apt-get update
           sudo apt-get install -y \
@@ -49,6 +54,17 @@ jobs:
             libsoup2.4-dev \
             libjavascriptcoregtk-4.0-dev \
             patchelf
+
+      - name: Download WebView2 Fixed Runtime
+        if: matrix.platform == 'windows-2025'
+        run: gh release download webview2-runtimes --pattern "Microsoft.WebView2.FixedVersionRuntime.88.0.705.81.x64.cab"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract WebView2 Fixed Runtime
+        if: matrix.platform == 'windows-2025'
+        run: |
+          Expand .\Microsoft.WebView2.FixedVersionRuntime.88.0.705.81.x64.cab -F:* ./src-tauri
 
       - name: Install Frontend Dependencies
         run: bun install --frozen-lockfile
